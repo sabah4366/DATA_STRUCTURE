@@ -18,6 +18,7 @@
 lst=[2200,2350,2600,2130,2190]
 dollar=lst[1]-lst[0]
 print(dollar,'spent extra')
+#time complexity O(1)
 # 2-ANSWER
 total=lst[0]+lst[1]+lst[2]
 print(total,'total expense in first thre months ')
@@ -80,3 +81,5 @@ print(heros)
 max=int(input("enter a number"))
 lst=[i for i in range(1,max) if i%2==1]
 print('odd numbers',lst)
+
+
