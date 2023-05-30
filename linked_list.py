@@ -26,18 +26,7 @@ class SinglyLinkedList:
             temp=temp.next
         temp.next=Node(data,None)
 
-    def displayNode(self):
-        if self.head is None:
-            print("lisked list is empty")
-            return
-        temp=self.head
-        llst=""
-        while temp:
-            llst+=str(temp.data)
-            temp=temp.next
-            if temp:
-                llst+='==>'
-        print(llst)
+    
 
     #add set of values to linked list
     def values_list(self,value_list):
@@ -128,7 +117,40 @@ class SinglyLinkedList:
                 temp.next=temp.next.next
                 break
             temp=temp.next
-    
+
+
+    #remove duplicate nodes if duplicates nodes are in one after one like(4,4,5,6,6)
+    #it will remove one 4 and one 6 remaining nodesd are 4,6 only
+    def removeDuplicates(self):
+        if self.head is None:
+            return
+        current=self.head
+        while current :
+            next=current.next
+            if next:
+                while (current.next) and (next.data == current.data):  
+                    current.next=next.next
+                    next=current.next
+                    
+            current=next
+        return   
+        
+    def displayNode(self):
+        if self.head is None:
+            print("lisked list is empty")
+            return
+        temp=self.head
+        llst=""
+        while temp:
+            llst+=str(temp.data)
+            temp=temp.next
+            if temp:
+                llst+='==>'
+        print(llst)      
+            
+            
+            
+
             
     
             
@@ -316,28 +338,27 @@ class DoublyLinkedList:
         print(dlst)
         
             
-        
-
-
 if __name__ == "__main__":
-    # obj=SinglyLinkedList()
-    # obj.insertEnd(1)
-    # obj.insertEnd(2)
-    # obj.insertEnd(3)
-    # obj.insertEnd(4)
+    obj=SinglyLinkedList()
+    obj.insertEnd(2)
+    obj.insertEnd(3)
+    obj.insertEnd(4)
+    obj.insertEnd(4)
+    obj.insert_after_value(3,22)
+    # obj.remove_by_value(5)
+    obj.removeDuplicates()
     # obj.remove_item(3)
     # obj.displayNode()
-    obj=DoublyLinkedList()
-    obj.add_end(1)
-    obj.add_end(2)
-    obj.add_end(3)
-    obj.add_end(4)
-    obj.add_end(5)
-    obj.insert_after_value(4,22)
+    # obj=DoublyLinkedList()
+    # obj.add_end(1)
+    # obj.add_end(2)
+    # obj.add_end(3)
+    # obj.add_end(4)
+    # obj.add_end(5)
+    # obj.insert_after_value(4,22)
     # obj.remove_by_value(5)
-    obj.insertAtIndex(4,111)
-
-    obj.backward()
+    # obj.insertAtIndex(4,111)
+    # obj.backward()
     # obj.forward()
     obj.displayNode()
     
